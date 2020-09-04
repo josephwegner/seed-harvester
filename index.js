@@ -1,5 +1,6 @@
 "use strict";
 
+const path = require('path')
 const findRoot = require("find-root");
 const flattenDeep = require("lodash.flattendeep");
 const pathfinder = require("sass-pathfinder");
@@ -49,7 +50,7 @@ const resolvePacks = packs => {
 
     packList = packs.map(pack => {
       // Get the second last string within the path
-      let packName = pack.split("/");
+      let packName = pack.split(path.sep);
       packName = packName[packName.length - 2];
       // Return an object to make it possible to remove duplicates
       return {
